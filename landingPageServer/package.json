@@ -8,6 +8,8 @@
   "dependencies": {
     "@mysql/xdevapi": "^8.0.12",
     "express": "3.2.6",
-    "jade": "*"
+    "jade": "*",
+    "mysql2": "^1.6.1",
+    "sequelize": "^4.39.0"
   }
 }
