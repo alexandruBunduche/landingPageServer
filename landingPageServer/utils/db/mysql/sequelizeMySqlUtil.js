@@ -12,5 +12,7 @@ const dbConfig= {
 const connection= new sequelize(dbConfig.dbName, dbConfig.user, dbConfig.password, dbConfig);
 
 const candidatoModel= connection.import('./sequelizeModels/candidato.js');
+const qualificationModel= connection.import('./sequelizeModels/tipologiatitolodistudio.js');
 
 module.exports.candidatoModel= candidatoModel;
+module.exports.qualificationModel= qualificationModel;
