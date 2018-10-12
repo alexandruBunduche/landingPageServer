@@ -4,7 +4,8 @@ const candidateModel= sequelizeUtils.candidatoModel;
 
  function insertCandidate(candidate){
 
-  candidateModel.create(candidate);
+
+ return candidateModel.create(candidate).then(error=> {} );
 }
 
 module.exports.insertCandidate= insertCandidate;

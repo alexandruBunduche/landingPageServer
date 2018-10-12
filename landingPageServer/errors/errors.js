@@ -1,0 +1,1 @@
+module.exports.emailAlreadyPresent= {id:0, value:'mail already present'};

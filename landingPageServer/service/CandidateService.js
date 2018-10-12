@@ -6,7 +6,7 @@
 
  function insertCandidate(candidtae){
 
-    candidateDao.insertCandidate(candidtae);
+    return candidateDao.insertCandidate;
  }
 
  module.exports.insertCandidate= insertCandidate;
