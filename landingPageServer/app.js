@@ -34,7 +34,7 @@ function getQualificationTypes(req, res){
 
   console.log('qualification request');
   qualificationService.getQualifications().then( qualifications => {
-      res.status(200).json(qualifications)
+      res.json(qualifications)
        .catch(err => res.status(500).send(errors.emailAlreadyPresent));
   });
 
