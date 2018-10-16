@@ -57,8 +57,8 @@ function postCandidate(req, res){
   console.log("postCandidate ",req.body);
 
     candidateModel.create(req.body)
-    .then(()=> res.status(200).send('ok'))
-    .catch(err=>   res.status(500).send('error'))
+        .then(() => res.status(200).send())
+        .catch(err => res.status(506).send(errors.emailAlreadyPresent))
     
 }
 
