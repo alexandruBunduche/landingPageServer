@@ -1,5 +1,6 @@
-const qualificationService= require('./service/QualificationService')
-const candidateService= require('./service/CandidateService')
+const qualificationService = require('./service/QualificationService');
+const candidateService = require('./service/CandidateService');
+const mailService = require('./service/MailService');
 var bodyParser = require('body-parser');
 var multer = require('multer'); // v1.0.5
 var upload = multer(); // for parsing multipart/form-data
@@ -43,7 +44,36 @@ function postCandidate(req, res){
 
   console.log("postCandidate ",req.body);
 
+    req.body.lastRegisterAttempt = new Date(Date.now()).toLocaleDateString();
     candidateModel.create(req.body)
-        .then(() => res.status(200).send())
-        .catch(err => res.status(506).send(errors.emailAlreadyPresent))
+        .then(() => handlePostSuccess(res, req))
+        .catch(err => handlePostErrors(err, res, req));
+}
+
+function handlePostErrors(err, res, req) {
+
+    if (err.errors != undefined)
+        err.errors.forEach(error => {
+
+            if (error.message == 'Email must be unique') {
+
+                res.status(506).send(errors.emailAlreadyPresent);
+
+                candidateService.getCandidateByEmail(req.body.Email).then(candidate => {
+
+                    console.log('selected candidate:');
+
+                    candidate = candidate[0].dataValues;
+                    candidate.lastRegisterAttempt = new Date(Date.now()).toLocaleDateString();
+                    console.dir(candidate)
+                    candidateService.updateCandidate(candidate);
+                });
+            }
+        });  
+}
+
+function handlePostSuccess(res, req) {
+
+    res.status(200).send();
+    mailService.sendWelcomeMail(req.body.Email);
 }
