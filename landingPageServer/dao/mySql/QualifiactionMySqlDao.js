@@ -7,7 +7,6 @@ const qualificationModel= sequelizeUtils.qualificationModel;
 
  
  function getQualifications(){
-    
    var options= {attributes: ['Id', 'Titolo']};
    var promise= qualificationModel.findAll(options);
    var retPromise = new Promise(resolve => resolve(promise.then(instances=> instancesToQualifiactions(instances))));

@@ -44,6 +44,10 @@ module.exports = function(sequelize, DataTypes) {
     lastRegisterAttempt: {
       type: DataTypes.DATE,
       allowNull: false
+    },
+    curriculumVitae: {
+      type: "MEDIUMBLOB",
+      allowNull: true
     }
   }, {
     tableName: 'candidato'

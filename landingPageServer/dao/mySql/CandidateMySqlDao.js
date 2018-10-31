@@ -2,15 +2,13 @@
 const sequelizeUtils = require('../../utils/db/mysql/sequelizeMySqlUtil');
 const candidateModel= sequelizeUtils.candidatoModel;
 
- function insertCandidate(candidate){
-
+function insertCandidate(candidate) {
 
  return candidateModel.create(candidate).then(error=> {} );
 }
 
 function getCandidateByEmail(email) {
 
-    console.log('getCandidateByEmail ',email);
 
     selectOptions = {};
   //  selectOptions.atributes = ['Id','Nome', 'Cognome', 'Email', 'DataDiNascita', 'TitoloDiStudio', 'lastRegisterAttempt']; //Fields to select (defaults to all fields)

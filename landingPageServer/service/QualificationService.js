@@ -1,6 +1,3 @@
-/**
- * http://usejsdoc.org/
- */
 const qualificationDao= require('../dao/mySql/QualifiactionMySqlDao');
 
 function getQualifications(){

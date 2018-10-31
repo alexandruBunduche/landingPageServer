@@ -1,27 +1,19 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('tipologiatitolodistudio', {
-    Id: {
+  return sequelize.define('Competenza', {
+    id: {
       type: DataTypes.BIGINT,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
-    Titolo: {
+    Competenza: {
       type: DataTypes.STRING(500),
       allowNull: false,
       unique: true
-    },
-    createdAt: {
-      type: DataTypes.DATE,
-      allowNull: false
-    },
-    updatedAt: {
-      type: DataTypes.DATE,
-      allowNull: false
     }
   }, {
-    tableName: 'tipologiatitolodistudio'
+    tableName: 'Competenza'
   });
 };

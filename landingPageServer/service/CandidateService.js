@@ -16,7 +16,6 @@ function updateCandidate(candidtae) {
 
 function getCandidateByEmail(email) {
 
-    console.log('candidate service: getCandidateByEmail ', email);
     return candidateDao.getCandidateByEmail(email);
 }
 
